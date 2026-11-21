@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FonoQuest · Fonética y Fonología del Español</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="loader">
+  <div class="cubes"><img src="assets/ival-logo.png" alt="Logo IVAL"></div>
+  <p class="load-title">FonoQuest</p>
+  <div class="bar"><i id="barfill"></i></div>
+  <p id="loadtext">Afinando los fonemas…</p>
+</div>
+
+<div class="bg" aria-hidden="true"></div>
+
+<header>
+  <div class="brand"><img src="assets/ival-logo.png" alt="IVAL"><span>FonoQuest</span></div>
+  <nav>
+    <button class="icon" id="btnTable" title="Cuadro de fonemas">📋</button>
+    <button class="icon" id="btnSound" title="Sonidos">🔊</button>
+    <button class="icon" id="btnTheme" title="Modo claro / oscuro">🌙</button>
+  </nav>
+</header>
+
+<main>
+  <!-- INICIO -->
+  <section id="home" class="screen active">
+    <h1>Identifica el fonema</h1>
+    <p class="inst">Instituto Venezolano de la Audición y el Lenguaje</p>
+    <p class="sub">30 palabras por ronda. Mira la letra resaltada, escucha la palabra y elige el fonema que suena.</p>
+    <input id="player" maxlength="16" placeholder="Tu nombre" autocomplete="off">
+    <div class="row">
+      <button class="big" id="btnPlay">Jugar ronda</button>
+      <button class="ghost" id="btnScores">Puntajes</button>
+      <button class="ghost" id="btnHow">Cómo se juega</button>
+    </div>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="game" class="screen">
+    <div class="hud">
+      <span>Palabra <b id="qn">1</b>/30</span>
+      <span>Puntos <b id="pts">0</b></span>
+      <span>Racha <b id="streak">0</b>🔥</span>
+    </div>
+    <div class="timer"><i id="tfill"></i></div>
+    <div class="card" id="card">
+      <div class="word" id="word"></div>
+      <div class="row">
+        <button class="ghost" id="btnListen">🔊 Escuchar</button>
+        <button class="ghost" id="btnSlow">🐢 Lento</button>
+        <button class="ghost" id="btnHint">💡 Pista</button>
+        <button class="ghost" id="btnPh" hidden>🔈 Fonema</button>
+      </div>
+      <p class="hint" id="hint"></p>
+    </div>
+    <div class="opts" id="opts"></div>
+    <p class="fb" id="fb"></p>
+    <button class="big" id="btnNext" hidden>Siguiente</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="end" class="screen">
+    <h2 id="endTitle">¡Ronda terminada!</h2>
+    <div class="score"><span id="finalPts">0</span><small>puntos</small></div>
+    <p id="endStats"></p>
+    <div id="fails"></div>
+    <div class="row">
+      <button class="big" id="again">Jugar otra vez</button>
+      <button class="ghost" id="toScores">Ver puntajes</button>
+      <button class="ghost" id="toHome">Inicio</button>
+    </div>
+  </section>
+
+  <!-- PUNTAJES -->
+  <section id="scores" class="screen">
+    <h2>Puntajes</h2>
+    <ol id="scoreList"></ol>
+    <div class="row">
+      <button class="ghost" id="backHome">Volver</button>
+      <button class="ghost danger" id="clearScores">Borrar puntajes</button>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal"><div class="box"><button class="icon close" id="closeModal">✕</button><div id="modalBody"></div></div></div>
+<script src="js/words.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
